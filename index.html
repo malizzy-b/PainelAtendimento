@@ -24,39 +24,68 @@
         <script src="https://unpkg.com/phosphor-icons"></script>
 
         <!-- Tailwind configuration -->
-        <script src="tailwindcss.js"></script>
+        <script src="js/tailwind.js"></script>
     </head>
 
 
-   <body class="overflow-x-hidden">
-        <div class="w-screen absolute h-[90px] md:w-[170vw] md:h-[60rem] md:md:h-[63rem] bg-lightpurple md:top-[-80%] md:left-[-20%] md:skew-y-3 md:-rotate-[20deg] z-[-1] p-6 ">
-          <div class="hidden md:block relative w-full h-full bg-lightpurple brightness-[1.15]"></div>
-        </div>
-        
-        <main class="w-screen h-auto bg-[url({{BASE}}/svgs/background.svg)] bg-cover bg-repeat-y bg-center relative overflow-x-hidden">
-         <header class="p-8">
-              <h1 class="text-2xl font-mukta decoration-4 font-bold decoration-white">Painel de Atendimento</h1>
+   <body class="overflow-x-hidden bg-back">
+        <main class="decoration-back w-screen h-auto">
+         <header class="p-16 mt-8">
+              <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Painel de Atendimento</h1>
          </header>
 
-         <main>
-             <div class="row container mx-auto mt-4 flex justify-center">  <!-- Cards -->
-                 <div class="max-w-sm rounded overflow-hidden shadow-lg mx-2"> <!-- Card1 -->
+         <main class=" h-auto">
+             <div class="flex-row gap-3 container mx-auto mt-4 flex justify-center p-8 mt-1.5"> 
+                 <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 decoration-white bg-white"> 
                    <div class="px-6 py-4">
-                       <h1 class="font-bold text-xl mb-2 place-content-center decoration-title">Atendimento</h1>
-                         <p class="text-gray-700 text-base">
-                            Conteúdo do Card 1.
-                         </p>
+                       <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Atendimento</h1>
+                         
                    </div>
-
                  </div>
 
 
 
-                <div class=""> <!-- Card2 -->
-
+                <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 bg-white"> 
+                  <div class="px-6 py-4">
+                    <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Consulta</h1>
+                      
+                </div>
                 </div>
              </div>
 
+
+
+             <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Senhas Atendidas</h1>
+             <hr>
+
+             <div class="flex-row gap-3 container mx-auto mt-4 flex justify-center p-8 my-1.5"> 
+                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
+                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
+                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
+          </div>
+
+          <footer class="p-8">
+             <div>
+                <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Tempo de Espera Aproximado</h1>
+             </div>
+
+             <div class="flex-row container mx-auto mt-4 flex float-left justify-starts space-x-8">
+               <div class="flex-row space-x-8 content-center">
+                  <div class="rounded-full w-6 h-6 bg-lightred"></div>
+                  <p class="font-bold">1 hora</p>
+               </div>
+
+                <div class="flex-row space-x-8 content-center">
+                  <div class="rounded-full w-6 h-6 bg-lightorange"></div>
+                  <p class="font-bold">2 horas</p>
+                </div>
+
+                <div class="flex-row space-x-8 content-center bg-lightred">
+                  <div class="rounded-full w-6 h-6 bg-darkblue"></div>
+                  <p class="font-bold bg-white">3 horas</p>
+                </div>
+             </div>
+           </footer>
         </main>
       </main>  
    </body>
