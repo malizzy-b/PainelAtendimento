@@ -17,12 +17,15 @@ tailwind.config = {
           limegreen: "#85FF91",
           orange: "#FF9900",
           white: "#fff",
-          black: "#000"
+          black: "#000",
         },
       },
       fontFamily: {
         font: ["Mukta", "sans-serif"],
       },
+      width: {
+        '96': '448px',
+      }
     },
   };
   

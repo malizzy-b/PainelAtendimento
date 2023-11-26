@@ -1,92 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <!-- Fonts Google Preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-        <meta charset="UTF-8"/>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <!-- Fonts --> 
-        <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+   <!-- Fonts Google Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <meta charset="UTF-8"/>
 
-    
-        <!-- TAILWIND Import -->
-        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-
-        <!--AOS-->
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        <!-- PHOSPOR ICONS --> 
-        <script src="https://unpkg.com/phosphor-icons"></script>
-
-        <!-- Tailwind configuration -->
-        <script src="js/tailwind.js"></script>
-    </head>
+   <!-- Fonts --> 
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
 
 
-   <body class="overflow-x-hidden bg-back">
-        <main class="decoration-back w-screen h-auto">
-         <header class="p-16 mt-8">
-              <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Painel de Atendimento</h1>
-         </header>
+    <!-- TAILWIND Import -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
-         <main class=" h-auto">
-             <div class="flex-row gap-3 container mx-auto mt-4 flex justify-center p-8 mt-1.5"> 
-                 <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 decoration-white bg-white"> 
-                   <div class="px-6 py-4">
-                       <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Atendimento</h1>
-                         
-                   </div>
-                 </div>
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- PHOSPOR ICONS --> 
+    <script src="https://unpkg.com/phosphor-icons"></script>
+
+    <!-- Tailwind configuration -->
+    <script src="js/tailwind.js"></script>
+
+    <!--Shoelace-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace.js" ></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        var videoId = "v74vhVyU51I";
+        var apiKey = "AIzaSyBc4AC7_5OqHOspkwIE0RnRPHfWe2pD5Rk";
+
+        function inicializarVideoPlayer() {
+            var player = new YT.Player('videoPlayer', {
+                height: '315',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,    // Iniciar automaticamente
+                    'controls': 0,    // Ocultar controles do player
+                    'loop': 1,        // Repetir em loop
+                    'enablejsapi': 1,  // Habilitar API JavaScript
+                    'origin': 'http://localhost',  // URL de origem
+                    'key': apiKey      // Chave de API do YouTube
+                },
+                events: {
+                    'onReady': function (event) {
+                        // O vídeo está pronto para ser reproduzido
+                        event.target.playVideo();
+                    }
+                }
+            });
+        }
+
+        function carregarYouTubeAPI() {
+            var tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+
+        window.onYouTubeIframeAPIReady = function () {
+            inicializarVideoPlayer();
+        };
+
+        $(document).ready(function () {
+            carregarYouTubeAPI();
+        });
+    </script>
+
+        
+</head>
+
+<body class="overflow-x-hidden bg-[url(svgs/fundo1.svg)] bg-background w-full bg-repeat-x bg-repeat-y min-h-screen bg-contain cover bg-no-repeat relative overflow-x-hidden flex flex-row">
+    <sl-tab-group>
+        <sl-tab slot="nav" panel="page1" class="custom-tab">Page 1</sl-tab>
+        <sl-tab slot="nav" panel="page2" class="custom-tab">Page 2</sl-tab>
+        <style>
+            /* Cor do texto */
+            sl-tab::part(base) {
+                color: var(--sl-color-neutral-0);
+                border-bottom: none
+            }
+        </style>
+
+        <sl-tab-panel name="page1">
+            <main class="decoration-back w-screen h-auto">
+                <header class="ml-6 mt-2">
+                    <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Painel de Atendimento</h1>
+                </header>
+
+                <main class="h-auto">
+                    <!-- Conteúdo da seção de atendimento aqui -->
+                    <div class="flex-row gap-6 container mx-auto mt-4 flex items-center  mt-1.5">
+                          <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-60 decoration-white bg-white"> 
+                             <div id="card1" class="px-6 py-4">
+                                  <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Atendimento</h1>
+                                
+                              </div>
+                          </div>
+
+                          <div id="videoPlayer" class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-[400rem] h-96 decoration-white bg-white"></div>
+
+                          <div id="card3" class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-60 bg-white"> 
+                            <div class="px-6 py-4">
+                                <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Consulta</h1>
+                              
+                            </div>
+                          </div>
+                     </div>
+        
+
+                    <h1 class="ml-6 mb-5 text-2xl font-mukta decoration-4 font-bold text-white">Senhas Atendidas</h1>
+                    <div class="flex-row gap-3 container mx-auto mt-4 flex justify-center p-8 my-1.5">
+                      <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-16 border-white bg-background"> </div>
+                      <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-16 border-white bg-background"> </div>
+                      <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-16 border-white bg-background"> </div>
+                    </div>
+
+                    <footer class="ml-6">
+                        <div>
+                            <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Tempo de Espera Aproximado</h1>
+                        </div>
+                        <div class="flex-row container mx-auto mt-4 flex float-left justify-starts space-x-8">
+                          <div class="flex-row space-x-8 content-center">
+                            <div class="rounded-full w-6 h-6 bg-lightred"></div>
+                            <p class="flex mt-[-24px] font-bold text-white">1 hora</p>
+                         </div>
+          
+                          <div class="flex-row space-x-8 content-center">
+                            <div class="rounded-full w-6 h-6 bg-lightorange"></div>
+                            <p class="flex mt-[-24px] font-bold text-white">2 horas</p>
+                          </div>
+          
+                          <div class="flex-row space-x-8 items-center">
+                            <div class="rounded-full w-6 h-6 bg-darkblue"></div>
+                            <p class="flex mt-[-24px] font-bold text-white">3 horas</p>
+                        </div>
+                        
+                        </div>
+                    </footer>
+                </main>
+            </main>
+        </sl-tab-panel>
+
+        <sl-tab-panel name="page2">
+            <main class="decoration-back w-screen h-auto justify-center items-center">
+                <div class="flex-row gap-16 container mx-auto mt-4 flex justify-center items-center p-8 mt-1.5">
+                     <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-60 decoration-white bg-white"> 
+                        <div id="flex card1" class="px-6 py-4 flex flex-col justify-between items-center">
+                                <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Chamar Atendimento</h1>
+                                <div class="flex">
+                                    <button class="bg-background text-white px-4 py-2 rounded text-title">Chamar</button>
+                                </div>
+                        </div>
+                     </div>
 
 
-
-                <div class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 bg-white"> 
-                  <div class="px-6 py-4">
-                    <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Consulta</h1>
-                      
+                     <div id="card3" class="max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-60 bg-white"> 
+                         <div class="px-6 py-4 flex flex-col justify-between items-center">
+                            <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Chamar Consulta</h1>
+                            <div class="flex">
+                              <button class="bg-background text-white px-4 py-2 rounded text-title">Chamar</button>
+                            </div>
+                         </div>
+                     </div>                
                 </div>
+
+                <div class="flex gap-3 container mx-auto mt-4 flex justify-center p-8 my-1.5">
+                    <div class="flex-col flex justify-between items-center max-w-sm rounded shadow-md mx-2 w-96 h-36 border-white bg-white">
+                        <h1 class="flex font-bold text-xl mb-2 place-content-center text-title">Gerar Senha</h1>
+                        <div class="flex text-title">
+                            <button class="bg-background text-white p-4 py-2 rounded text-font">Gerar</button>
+                        </div>
+                    </div>
                 </div>
-             </div>
+         </main>
+         </main>
+        </sl-tab-panel>
+    </sl-tab-group>
+</body>
 
-
-
-             <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Senhas Atendidas</h1>
-             <hr>
-
-             <div class="flex-row gap-3 container mx-auto mt-4 flex justify-center p-8 my-1.5"> 
-                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
-                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
-                <div class="flex place-content-center max-w-sm rounded overflow-hidden shadow-md mx-2 w-96 h-80 border-white"> </div>
-          </div>
-
-          <footer class="p-8">
-             <div>
-                <h1 class="text-2xl font-mukta decoration-4 font-bold text-white">Tempo de Espera Aproximado</h1>
-             </div>
-
-             <div class="flex-row container mx-auto mt-4 flex float-left justify-starts space-x-8">
-               <div class="flex-row space-x-8 content-center">
-                  <div class="rounded-full w-6 h-6 bg-lightred"></div>
-                  <p class="font-bold">1 hora</p>
-               </div>
-
-                <div class="flex-row space-x-8 content-center">
-                  <div class="rounded-full w-6 h-6 bg-lightorange"></div>
-                  <p class="font-bold">2 horas</p>
-                </div>
-
-                <div class="flex-row space-x-8 content-center bg-lightred">
-                  <div class="rounded-full w-6 h-6 bg-darkblue"></div>
-                  <p class="font-bold bg-white">3 horas</p>
-                </div>
-             </div>
-           </footer>
-        </main>
-      </main>  
-   </body>
 </html>
